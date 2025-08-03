@@ -3,7 +3,6 @@ import cors from 'cors';
 import Replicate from 'replicate';
 import dotenv from 'dotenv';
 import { v4 as uuidv4 } from 'uuid';
-import serverless from 'serverless-http';
 
 dotenv.config();
 
@@ -121,6 +120,5 @@ app.delete('/api/history/:id', (req, res) => {
   res.json({ message: 'Deleted successfully' });
 });
 
-// 🚫 Jangan gunakan app.listen di Vercel
-// Ekspor handler untuk serverless
-export const handler = serverless(app);
+// ✅ EKSPOR UNTUK VERCEL
+export default app;
